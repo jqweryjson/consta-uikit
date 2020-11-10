@@ -4,19 +4,20 @@ Sidebar - компонент контейнер для контента и кн�
 
 ## Список свойств
 
-| Свойство               | Тип или варианты значения                                             | По умолчанию              |
-| ---------------------- | --------------------------------------------------------------------- | ------------------------- |
-| isOpen?                | `boolean`                                                             | -                         |
-| onClose?               | `() => void`                                                          | -                         |
-| onOpen?                | `() => void`                                                          | -                         |
-| hasOverlay?            | `boolean`                                                             | -                         |
-| onOverlayClick?        | `(e: React.MouseEvent) => void`                                       | -                         |
-| position?              | `'right', 'bottom', 'left', 'top'`                                    | `right`                   |
-| width?                 | `'auto'`                                                              | `auto`                    |
-| height?                | `'auto'`                                                              | `auto`                    |
-| className?             | `string`                                                              | -                         |
-| children?              | `React.ReactNode`                                                     | -                         |
-| container?             | `HTMLDivElement, undefined`                                           | `window.document.body`    |
+| Свойство         | Тип или варианты значения          | По умолчанию           | Описание                                          |
+| ---------------- | ---------------------------------- | ---------------------- | ------------------------------------------------- |
+| isOpen?          | `boolean`                          | -                      | флаг "открыто"                                    |
+| onClose?         | `() => void`                       | -                      | событие которое отработает по закрытию            |
+| onOpen?          | `() => void`                       | -                      | событие которое отработает по открытию            |
+| hasOverlay?      | `boolean`                          | -                      | отображать `Overlay` ?                            |
+| onOverlayClick?  | `(e: React.MouseEvent) => void`    | -                      | событие которое отработает при клике на `Overlay` |
+| position?        | `'right', 'bottom', 'left', 'top'` | `right`                | позиция                                           |
+| width?           | `'auto'`                           | `auto`                 | ширина                                            |
+| height?          | `'auto'`                           | `auto`                 | высота                                            |
+| className?       | `string`                           | -                      | дополнительный ксласс компонента                  |
+| windowClassName? | `string`                           | -                      | дополнительный ксласс для элемента `Window`       |
+| children?        | `React.ReactNode`                  | -                      | контент                                           |
+| container?       | `HTMLDivElement, undefined`        | `window.document.body` | елемент в котором рендериться компонент           |
 
 ## Пример использования
 
@@ -33,20 +34,14 @@ Sidebar - компонент контейнер для контента и кн�
   position={position}
 >
   <Sidebar.Content className={cnSidebarStories('Content')}>
-    <Text
-      as="p"
-      size="l"
-      view="primary"
-      weight="semibold"
-      className={cnSidebarStories('Title')}
-    >
+    <Text as="p" size="l" view="primary" weight="semibold" className={cnSidebarStories('Title')}>
       Заголовок сайдбара
     </Text>
     <Text as="p" size="m" view="secondary" className={cnSidebarStories('Body')}>
       Sed porta sollicitudin purus sagittis elementum. Pellentesque habitant morbi tristique
       senectus et netus et malesuada fames ac turpis egestas. Pellentesque tincidunt, augue et
-      placerat cursus, neque sem imperdiet mi, ut fringilla nunc nibh non enim. Vivamus id
-      metus convallis, commodo magna vel, scelerisque nisi.
+      placerat cursus, neque sem imperdiet mi, ut fringilla nunc nibh non enim. Vivamus id metus
+      convallis, commodo magna vel, scelerisque nisi.
     </Text>
   </Sidebar.Content>
   <Sidebar.Actions className={cnSidebarStories('Actions')}>

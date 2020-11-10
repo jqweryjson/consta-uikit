@@ -1,5 +1,5 @@
 .Modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -49,25 +49,61 @@
     &_appearActive,
     &_enterActive,
     &_exitActive {
-      transition: opacity 0.2s ease;
+      .Modal-Overlay {
+        transition: opacity 0.2s ease;
+      }
+
+      .Modal-Window {
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+        transition-property: opacity, transform;
+      }
     }
 
     &_appear,
     &_enter {
-      opacity: 0;
+      .Modal-Overlay {
+        opacity: 0;
+      }
+
+      .Modal-Window {
+        opacity: 0;
+        transform: translate3d(0, -100px, 0);
+      }
     }
 
     &_appearActive,
     &_enterActive {
-      opacity: 1;
+      .Modal-Overlay {
+        opacity: 1;
+      }
+
+      .Modal-Window {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
     }
 
     &_exit {
-      opacity: 1;
+      .Modal-Overlay {
+        opacity: 1;
+      }
+
+      .Modal-Window {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
     }
 
     &_exitActive {
-      opacity: 0;
+      .Modal-Overlay {
+        opacity: 0;
+      }
+
+      .Modal-Window {
+        opacity: 0;
+        transform: translate3d(0, 100px, 0);
+      }
     }
   }
 }

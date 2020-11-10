@@ -24,6 +24,7 @@ type ModalProps = {
   hasOverlay?: boolean;
   onOverlayClick?: (event: MouseEvent) => void;
   className?: string;
+  windowClassName?: string;
   width?: ModalPropWidth;
   position?: ModalPropPosition;
   children?: React.ReactNode;
@@ -44,6 +45,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     position = modalPropPositionDefault,
     children,
     container = window.document.body,
+    windowClassName,
     ...rest
   } = props;
   const ref = React.useRef<HTMLDivElement | null>(null);
@@ -71,9 +73,13 @@ export const Modal: React.FC<ModalProps> = (props) => {
       classNames={cnForCssTransition(cnModal)}
       timeout={200}
     >
-      <PortalWithTheme preset={theme} container={container}>
+      <PortalWithTheme preset={theme} container={container} className={cnModal(null, [className])}>
         {hasOverlay && <div className={cnModal('Overlay')} aria-label="Оверлэй" />}
-        <div className={cnModal('Window', { width, position }, [className])} ref={ref} {...rest}>
+        <div
+          className={cnModal('Window', { width, position }, [windowClassName])}
+          ref={ref}
+          {...rest}
+        >
           {children}
         </div>
       </PortalWithTheme>

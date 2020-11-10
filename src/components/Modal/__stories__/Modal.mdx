@@ -4,36 +4,37 @@ Modal - компонент контейнер с белым фоном для о
 
 ## Список свойств
 
-| Свойство               | Тип или варианты значения                                             | По умолчанию              |
-| ---------------------- | --------------------------------------------------------------------- | ------------------------- |
-| isOpen?                | `boolean`                                                             | -                         |
-| onClose?               | `() => void`                                                          | -                         |
-| onOpen?                | `() => void`                                                          | -                         |
-| onOverlayClick?        | `(e: React.MouseEvent) => void`                                       | -                         |
-| hasOverlay?            | `boolean`                                                             | `true`                    |
-| className?             | `string`                                                              | -                         |
-| width?                 | `'auto'`                                                              | `auto`                    |
-| position?              | `'center', 'top'`                                                     | `center`                  |
-| children?              | `React.ReactNode`                                                     | -                         |
-| container?             | `HTMLDivElement, undefined`                                           | `window.document.body`    |
+| Свойство         | Тип или варианты значения       | По умолчанию           | Описание                                          |
+| ---------------- | ------------------------------- | ---------------------- | ------------------------------------------------- |
+| isOpen?          | `boolean`                       | -                      | флаг "открыто"                                    |
+| onClose?         | `() => void`                    | -                      | событие которое отработает по закрытию            |
+| onOpen?          | `() => void`                    | -                      | событие которое отработает по открытию            |
+| onOverlayClick?  | `(e: React.MouseEvent) => void` | -                      | событие которое отработает при клике на `Overlay` |
+| hasOverlay?      | `boolean`                       | `true`                 | олтображать `Overlay` ?                           |
+| className?       | `string`                        | -                      | дополнительный ксласс компонента                  |
+| windowClassName? | `string`                        | -                      | дополнительный ксласс для элемента `Window`       |
+| width?           | `'auto'`                        | `auto`                 | ширина                                            |
+| position?        | `'center', 'top'`               | `center`               | позиция                                           |
+| children?        | `React.ReactNode`               | -                      | контент                                           |
+| container?       | `HTMLDivElement, undefined`     | `window.document.body` | елемент в котором рендериться компонент           |
 
 ## Пример использования
 
 ```ts
-<Modal className='myClassName' isOpen={isModalOpen} onOverlayClick={() => setIsModalOpen(false)}>
-  <Text as='p' size='s' view='secondary' className={cnModalStories('title')}>
+<Modal className="myClassName" isOpen={isModalOpen} onOverlayClick={() => setIsModalOpen(false)}>
+  <Text as="p" size="s" view="secondary" className={cnModalStories('title')}>
     Заголовок модалки
   </Text>
-  <Text as='p' size='m' view='primary' className={cnModalStories('body')}>
-    Описание в теле модалки. Здесь может находиться какая-то информация.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+  <Text as="p" size="m" view="primary" className={cnModalStories('body')}>
+    Описание в теле модалки. Здесь может находиться какая-то информация. Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit, sed do eiusmod tempor incididunt.
   </Text>
   <div className={cnModalStories('action')}>
     <Button
       size="m"
       view="primary"
       label="Закрыть"
-      width='default'
+      width="default"
       onClick={() => setIsModalOpen(false)}
     />
   </div>

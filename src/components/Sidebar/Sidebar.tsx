@@ -31,6 +31,7 @@ type SidebarProps = {
   position?: SidebarPropPosition;
   width?: SidebarPropWidth;
   height?: SidebarPropHeight;
+  windowClassName?: string;
   className?: string;
   children?: React.ReactNode;
   container?: HTMLDivElement | undefined;
@@ -76,6 +77,7 @@ export const Sidebar: SidebarComponent = (props) => {
     width = sidebarPropWidthDefault,
     height = sidebarPropHeightDefault,
     className,
+    windowClassName,
     children,
     container = window.document.body,
     ...rest
@@ -100,7 +102,11 @@ export const Sidebar: SidebarComponent = (props) => {
       classNames={cnForCssTransition(cnSidebar)}
       timeout={200}
     >
-      <PortalWithTheme preset={theme} container={container}>
+      <PortalWithTheme
+        preset={theme}
+        container={container}
+        className={cnSidebar(null, [className])}
+      >
         {hasOverlay && (
           // eslint-disable-next-line jsx-a11y/click-events-have-key-events
           <div
@@ -111,7 +117,10 @@ export const Sidebar: SidebarComponent = (props) => {
             role="button"
           />
         )}
-        <div className={cnSidebar('Window', { width, height, position }, [className])} {...rest}>
+        <div
+          className={cnSidebar('Window', { width, height, position }, [windowClassName])}
+          {...rest}
+        >
           {children}
         </div>
       </PortalWithTheme>
