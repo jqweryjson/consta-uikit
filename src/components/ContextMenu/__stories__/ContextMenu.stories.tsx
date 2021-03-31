@@ -3,7 +3,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 
 import { exampleItems, groups, Item } from '../__mocks__/mock.data';
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { Badge } from '../../Badge/Badge';
 import { Button } from '../../Button/Button';
 import { Switch } from '../../Switch/Switch';
@@ -77,7 +77,7 @@ function renderRightSide(
 
 const cnChoiceGroupStories = cn('ContextMenuStories');
 
-export function Playground() {
+function Default() {
   const {
     disabled,
     size,
@@ -149,6 +149,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=4894%3A74617',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/ContextMenu',

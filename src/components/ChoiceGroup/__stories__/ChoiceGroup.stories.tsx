@@ -6,7 +6,7 @@ import { IconCamera } from '../../../icons/IconCamera/IconCamera';
 import { IconCopy } from '../../../icons/IconCopy/IconCopy';
 import { IconFavorite } from '../../../icons/IconFavorite/IconFavorite';
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   ChoiceGroup,
   choiceGroupDefaultForm,
@@ -53,7 +53,7 @@ const defaultKnobs = () => ({
 
 const cnChoiceGroupStories = cn('ChoiceGroupStories');
 
-export function Playground() {
+function Default() {
   const [valueMultiple, setValueMultiple] = useState<Item[] | null>(null);
   const [value, setValue] = useState<Item | null>(null);
   const { multiple, size, view, width, form, withIcon, onlyIcon } = defaultKnobs();
@@ -99,6 +99,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=5156%3A79693',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/ChoiceGroup',

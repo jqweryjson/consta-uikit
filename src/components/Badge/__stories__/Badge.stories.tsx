@@ -2,7 +2,7 @@ import * as React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import { IconUser } from '../../../icons/IconUser/IconUser';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   Badge,
   badgePropForm,
@@ -27,7 +27,7 @@ const defaultKnobs = () => ({
   icon: boolean('icon', false),
 });
 
-export function Playground() {
+function Default() {
   const { label, size, view, status, form, minified, icon } = defaultKnobs();
 
   return (
@@ -44,6 +44,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=40%3A119',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Badge',

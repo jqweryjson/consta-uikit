@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import { IconAttach } from '../../../icons/IconAttach/IconAttach';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   tagBasePropGroupNumberValue,
   tagBasePropSize,
@@ -21,7 +21,7 @@ const defaultKnobs = () => ({
   icon: boolean('icon', false),
 });
 
-export function Playground() {
+function Default() {
   const { label, size, mode, group: groupProp, icon } = defaultKnobs();
   const [checked, setChecked] = useState<boolean>(false);
   const group = typeof groupProp === 'number' ? groupProp : undefined;
@@ -72,6 +72,15 @@ export function Playground() {
 
   return <div>{getTag()}</div>;
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=11148%3A145952',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Tag',

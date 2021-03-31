@@ -5,7 +5,7 @@ import { IconProps } from '../../../icons/Icon/Icon';
 import { IconCamera } from '../../../icons/IconCamera/IconCamera';
 import { IconPhoto } from '../../../icons/IconPhoto/IconPhoto';
 import { IconRing } from '../../../icons/IconRing/IconRing';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { Tabs } from '../Tabs';
 
 import mdx from './Tabs.mdx';
@@ -37,7 +37,7 @@ const items = [
   },
 ];
 
-export function Playground() {
+function Default() {
   const { size, view, withIcon, onlyIcon } = defaultKnobs();
 
   const [value, setValue] = useState<Item | null>(items[0]);
@@ -55,6 +55,15 @@ export function Playground() {
     />
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=12745%3A116509',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Tabs',

@@ -5,7 +5,7 @@ import { boolean, number, text } from '@storybook/addon-knobs';
 
 import { IconTrash } from '../../../icons/IconTrash/IconTrash';
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { Attach } from '../Attach';
 
 import mdx from './Attach.mdx';
@@ -23,7 +23,7 @@ const defaultKnobs = () => ({
 
 const cnAttachStories = cn('AttachStories');
 
-export function Playground() {
+function Default() {
   const {
     loading,
     loadingText,
@@ -58,6 +58,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=58%3A16411',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Attach',

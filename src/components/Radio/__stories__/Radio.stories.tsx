@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   Radio,
   radioPropAlign,
@@ -22,7 +22,7 @@ const defaultKnobs = () => ({
   label: text('label', 'I am radio'),
 });
 
-export function Playground() {
+function Default() {
   const { disabled, size, view, label, align } = defaultKnobs();
 
   const [checked, setChecked] = React.useState<boolean>(false);
@@ -45,6 +45,15 @@ export function Playground() {
     </form>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=57%3A1655',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Radio',

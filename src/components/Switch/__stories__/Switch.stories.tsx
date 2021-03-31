@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   Switch,
   switchPropAlign,
@@ -22,7 +22,7 @@ const defaultKnobs = () => ({
   label: text('label', 'Move me, I beg you!'),
 });
 
-export function Playground() {
+function Default() {
   const { disabled, size, view, label, align } = defaultKnobs();
   const [checked, setChecked] = useState<boolean>(false);
 
@@ -42,6 +42,15 @@ export function Playground() {
     </form>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=58%3A2269',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Switch',

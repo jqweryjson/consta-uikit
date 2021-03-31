@@ -2,7 +2,7 @@ import * as React from 'react';
 import { select, text } from '@storybook/addon-knobs';
 
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   Avatar,
   avatarPropForm,
@@ -22,7 +22,7 @@ const defaultKnobs = () => ({
 
 const cnAvatarStories = cn('AvatarStories');
 
-export function Playground() {
+function Default() {
   const { url, name, size, form } = defaultKnobs();
 
   return (
@@ -31,6 +31,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=56%3A30966',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Avatar',

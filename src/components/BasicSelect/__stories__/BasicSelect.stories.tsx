@@ -92,10 +92,22 @@ const Default = (props: {
 
 export const DefaultStory = createStory(() => <Default />, {
   name: 'по умолчанию',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=9701%3A190445',
+    },
+  },
 });
 
 export const WithValueStory = createStory(() => <Default value={items[4]} />, {
   name: 'c заданным значением',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=9701%3A190445',
+    },
+  },
 });
 
 export default createMetadata({

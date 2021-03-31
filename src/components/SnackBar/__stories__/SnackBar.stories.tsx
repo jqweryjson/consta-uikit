@@ -10,7 +10,7 @@ import { IconProcessing } from '../../../icons/IconProcessing/IconProcessing';
 import { IconRing } from '../../../icons/IconRing/IconRing';
 import { IconThumbUp } from '../../../icons/IconThumbUp/IconThumbUp';
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { Button } from '../../Button/Button';
 import {
   eventInterceptorMap,
@@ -52,7 +52,7 @@ function reducer(state: State, action: Action) {
   }
 }
 
-export function Playground() {
+function Default() {
   const { withIcon, withActionButtons, withAutoClose, withCloseButton } = defaultKnobs();
   const [items, dispatchItems] = React.useReducer(reducer, []);
   const generateHandleAdd = (status: SnackBarItemStatus) => () => {
@@ -147,6 +147,15 @@ export function Playground() {
     </EventInterceptorProvider>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=58%3A11236',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/SnackBar',

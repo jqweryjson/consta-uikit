@@ -4,7 +4,7 @@ import React from 'react';
 import { boolean, number, select } from '@storybook/addon-knobs';
 
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   HotKeys,
   Pagination,
@@ -29,7 +29,7 @@ const defaultKnobs = () => ({
   type: select('type', paginationTypes, paginationDefaultType),
 });
 
-export function Playground() {
+function Default() {
   const [currentPage, setCurrentPage] = React.useState<number>(0);
   const { pages, form, size, type } = defaultKnobs();
   const minifiedProp = boolean('minified', false);
@@ -68,6 +68,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=4861%3A74397',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Pagination',

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   eventInterceptorMap,
   EventInterceptorProvider,
@@ -30,7 +30,7 @@ const defaultKnobs = () => ({
 
 const cnCheckboxStories = cn('CheckboxStories');
 
-export function Playground() {
+function Default() {
   const { disabled, intermediate, size, view, align, label } = defaultKnobs();
 
   const [checked, setChecked] = React.useState<boolean>(false);
@@ -54,6 +54,15 @@ export function Playground() {
     </EventInterceptorProvider>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=56%3A37365',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Checkbox',

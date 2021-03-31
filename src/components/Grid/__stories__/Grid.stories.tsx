@@ -5,7 +5,7 @@ import { number, select } from '@storybook/addon-knobs';
 
 import { range } from '../../../utils/array';
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { Grid, GridItem, gridPropGap, gridPropXAlign, gridPropYAlign } from '../Grid';
 
 import mdx from './Grid.mdx';
@@ -32,7 +32,7 @@ const defaultKnobs = () => ({
 
 const cnGridStories = cn('GridStories');
 
-export function Playground() {
+function Default() {
   const {
     cols,
     gap,
@@ -83,6 +83,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=14188%3A0',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Grid',

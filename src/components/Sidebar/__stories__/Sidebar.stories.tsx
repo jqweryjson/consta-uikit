@@ -4,7 +4,7 @@ import React from 'react';
 import { boolean, select } from '@storybook/addon-knobs';
 
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { Button } from '../../Button/Button';
 import { Text } from '../../Text/Text';
 import { Sidebar } from '../Sidebar';
@@ -20,7 +20,7 @@ const defaultKnobs = () => ({
   position: select('position', ['right', 'bottom', 'left', 'top'], 'right'),
 });
 
-export function Playground() {
+function Default() {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
   const { hasOverlay, width, height, position } = defaultKnobs();
@@ -102,6 +102,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=5694%3A0',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Sidebar',

@@ -83,12 +83,24 @@ const getKnobs = (replacedProps?: Partial<Props<TableRow>>): Props<TableRow> => 
 
 export const Interactive = createStory(() => <Table {...getKnobs()} />, {
   name: 'обычная',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+    },
+  },
 });
 
 export const WithMultiLevelHeaders = createStory(
   () => <Table {...getKnobs(tableWithMultiLevelHeadersData as Partial<Props<TableRow>>)} />,
   {
     name: 'с многоуровневым заголовком',
+    parameters: {
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+      },
+    },
   },
 );
 
@@ -104,6 +116,12 @@ const WithActiveRowContent = (): JSX.Element => {
 
 export const WithActiveRow = createStory(() => <WithActiveRowContent />, {
   name: 'с выбором строки',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+    },
+  },
 });
 
 export const WithStickyHeader = createStory(
@@ -114,6 +132,12 @@ export const WithStickyHeader = createStory(
   ),
   {
     name: 'с зафиксированным заголовком',
+    parameters: {
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+      },
+    },
   },
 );
 
@@ -125,6 +149,12 @@ export const WithStickyColumn = createStory(
   ),
   {
     name: 'с зафиксированной колонкой',
+    parameters: {
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+      },
+    },
   },
 );
 
@@ -138,6 +168,12 @@ export const WithBagde = createStory(
   },
   {
     name: 'с Bagde',
+    parameters: {
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+      },
+    },
   },
 );
 
@@ -219,6 +255,12 @@ const WithOnRowHoverContent = (): JSX.Element => {
 
 export const WithCheckboxHeader = createStory(() => <WithCheckboxHeaderContent />, {
   name: 'с Checkbox в шапке',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+    },
+  },
 });
 
 export const WithCustomRowsPlaceholder = createStory(
@@ -231,6 +273,12 @@ export const WithCustomRowsPlaceholder = createStory(
   ),
   {
     name: 'со своим текстом если данных нет',
+    parameters: {
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+      },
+    },
   },
 );
 
@@ -246,6 +294,12 @@ export const WithBigData = createStory(
   },
   {
     name: 'с большим количеством строк',
+    parameters: {
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+      },
+    },
   },
 );
 
@@ -303,11 +357,23 @@ export const SortByData = createStory(
   },
   {
     name: 'сортировка по времени',
+    parameters: {
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+      },
+    },
   },
 );
 
 export const WithOnRowHover = createStory(() => <WithOnRowHoverContent />, {
   name: 'с наведением на строку',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+    },
+  },
 });
 
 export const WithMergedCells = createStory(
@@ -322,6 +388,12 @@ export const WithMergedCells = createStory(
   ),
   {
     name: 'с объединёнными ячейками',
+    parameters: {
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=1871%3A36244',
+      },
+    },
   },
 );
 

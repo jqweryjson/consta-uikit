@@ -2,7 +2,7 @@ import * as React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import { IconLeaf } from '../../../icons/IconLeaf/IconLeaf';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   Informer,
   informerPropStatus,
@@ -21,7 +21,7 @@ const defaultKnobs = () => ({
   icon: boolean('icon', false),
 });
 
-export function Playground() {
+function Default() {
   const { status, title, label, view, icon } = defaultKnobs();
 
   return (
@@ -34,6 +34,15 @@ export function Playground() {
     />
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=58%3A29120',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Informer',

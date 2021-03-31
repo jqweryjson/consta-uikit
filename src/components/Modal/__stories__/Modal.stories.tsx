@@ -4,7 +4,7 @@ import React from 'react';
 import { boolean, select } from '@storybook/addon-knobs';
 
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { Button } from '../../Button/Button';
 import { Text } from '../../Text/Text';
 import { Modal } from '../Modal';
@@ -28,10 +28,7 @@ const defaultKnobs = () => ({
   position: select('position', ['center', 'top'], 'center'),
 });
 
-export function Playground(props: {
-  children: React.ReactNode;
-  dropdownRef: React.RefObject<HTMLElement>[];
-}): JSX.Element {
+function Default(): JSX.Element {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const { hasOverlay, width, position } = defaultKnobs();
 
@@ -51,13 +48,13 @@ export function Playground(props: {
         onOverlayClick={(): void => setIsModalOpen(false)}
         width={width}
         position={position}
-        refsForExcludeClickOutside={[...(props.dropdownRef || [])]}
+        refsForExcludeClickOutside={[...[]]}
         // eslint-disable-next-line no-console
         onClose={(): void => console.log('Коллбэк на закрытие')}
         // eslint-disable-next-line no-console
         onOpen={(): void => console.log('Коллбэк на открытие')}
       >
-        {props.children || (
+        {
           <>
             <Text as="p" size="s" view="secondary" className={cnModalStories('Title')}>
               Заголовок модалки
@@ -67,7 +64,7 @@ export function Playground(props: {
               sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
             </Text>
           </>
-        )}
+        }
         <div className={cnModalStories('Action')}>
           <Button
             size="m"
@@ -81,6 +78,15 @@ export function Playground(props: {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=6263%3A117289',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Modal',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { Text } from '../../Text/Text';
 
 import { HeaderFullExample } from './examples/HeaderFullExample/HeaderFullExample';
@@ -10,7 +10,7 @@ import { HeaderWithoutMenuExample } from './examples/HeaderWithoutMenuExample/He
 import { HeaderWithoutSearchExample } from './examples/HeaderWithoutSearchExample/HeaderWithoutSearchExample';
 import mdx from './Header.mdx';
 
-export function Playground() {
+function Default() {
   return (
     <div>
       <Text size="3xl" lineHeight="l">
@@ -36,6 +36,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=2411%3A37833',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Header',

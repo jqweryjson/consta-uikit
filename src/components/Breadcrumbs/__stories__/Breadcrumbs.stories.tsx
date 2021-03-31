@@ -4,7 +4,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 import { IconProps } from '../../../icons/Icon/Icon';
 import { IconSettings } from '../../../icons/IconSettings/IconSettings';
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { breadcrumbPropSize, breadcrumbPropSizeDefault, Breadcrumbs } from '../Breadcrumbs';
 
 import mdx from './Breadcrumbs.mdx';
@@ -56,7 +56,7 @@ const pages: Page[] = [
 
 const cnBreadcrumbsStories = cn('BreadcrumbsStories');
 
-export function Playground() {
+function Default() {
   const { size, onlyIconRoot } = defaultKnobs();
 
   return (
@@ -77,6 +77,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=7752%3A136131',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Breadcrumbs',

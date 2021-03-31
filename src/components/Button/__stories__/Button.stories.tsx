@@ -5,7 +5,7 @@ import { boolean, select, text } from '@storybook/addon-knobs';
 import { IconSelect } from '../../../icons/IconSelect/IconSelect';
 import { IconUser } from '../../../icons/IconUser/IconUser';
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   eventInterceptorMap,
   EventInterceptorProvider,
@@ -39,7 +39,7 @@ const defaultKnobs = () => ({
 
 const cnButtonStories = cn('ButtonStories');
 
-export function Playground() {
+function Default() {
   const {
     width,
     size,
@@ -73,6 +73,15 @@ export function Playground() {
     </EventInterceptorProvider>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=9601%3A151',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Button',

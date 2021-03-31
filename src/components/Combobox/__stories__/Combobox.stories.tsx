@@ -69,10 +69,23 @@ const Default = (props: {
   );
 };
 
-export const DefaultStory = createStory(() => <Default />);
+export const DefaultStory = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=11065%3A140493',
+    },
+  },
+});
 
 export const WithValueStory = createStory(() => <Default value={simpleItems[4]} />, {
   name: 'c заданным значением',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=11065%3A140493',
+    },
+  },
 });
 
 export const WithGroupsStory = createStory(
@@ -83,6 +96,13 @@ export const WithGroupsStory = createStory(
   },
   {
     name: 'c группами опций',
+    parameters: {
+      design: {
+        type: 'figma',
+        url:
+          'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=11065%3A140493',
+      },
+    },
   },
 );
 
@@ -101,6 +121,13 @@ export const WithCreateStory = createStory(
   },
   {
     name: 'c cозданием новой опции',
+    parameters: {
+      design: {
+        type: 'figma',
+        url:
+          'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=11065%3A140493',
+      },
+    },
   },
 );
 

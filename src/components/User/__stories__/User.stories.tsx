@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   User,
   userPropSize,
@@ -30,7 +30,7 @@ const defaultKnobs = () => ({
   onlyAvatar: boolean('onlyAvatar', false),
 });
 
-export function Playground() {
+function Default() {
   const {
     view,
     width,
@@ -58,6 +58,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=58%3A39679',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/User',

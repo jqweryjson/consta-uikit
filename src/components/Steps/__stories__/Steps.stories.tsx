@@ -7,7 +7,7 @@ import { SimpleItem, simpleItems } from '../__mocks__/mock.data';
 import { IconBackward } from '../../../icons/IconBackward/IconBackward';
 import { IconForward } from '../../../icons/IconForward/IconForward';
 import { cn } from '../../../utils/bem';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import { Button } from '../../Button/Button';
 import { Text } from '../../Text/Text';
 import { Steps, stepsDefaultSize, stepsSizes } from '../Steps';
@@ -33,7 +33,7 @@ const getStepContent = (stepNumber: number) => {
   }
 };
 
-export function Playground() {
+function Default() {
   const [activeStep, setActiveStep] = React.useState<number>(0);
   const [skippedSteps, setSkippedSteps] = React.useState<number[]>([]);
   const [completedSteps, setCompletedSteps] = React.useState<number[]>([]);
@@ -85,6 +85,15 @@ export function Playground() {
     </div>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=6747%3A130211',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/Steps',

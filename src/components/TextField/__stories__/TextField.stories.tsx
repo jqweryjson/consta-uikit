@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 
 import { IconPhoto } from '../../../icons/IconPhoto/IconPhoto';
-import { createMetadata } from '../../../utils/storybook';
+import { createMetadata, createStory } from '../../../utils/storybook';
 import {
   eventInterceptorMap,
   EventInterceptorProvider,
@@ -40,7 +40,7 @@ const defaultKnobs = () => ({
   rightSideText: text('rightSideText', 'm²'),
 });
 
-export function Playground() {
+function Default() {
   const {
     width,
     form,
@@ -102,6 +102,15 @@ export function Playground() {
     </EventInterceptorProvider>
   );
 }
+
+export const Playground = createStory(() => <Default />, {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/v9Jkm2GrymD277dIGpRBSH/Consta-UI-Kit?node-id=5164%3A84922',
+    },
+  },
+});
 
 export default createMetadata({
   title: 'Компоненты|/TextField',
